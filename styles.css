@@ -1,0 +1,61 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 1. Global Sozlamalar */
+body {
+    @apply bg-white dark:bg-black text-slate-900 dark:text-slate-100 antialiased;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* 2. Komponent Klasslari */
+@layer components {
+    .glass-nav {
+        @apply sticky top-0 z-50 bg-white/80 dark:bg-black/80 backdrop-blur-xl border-b border-gray-100 dark:border-gray-900;
+    }
+
+    .glass-card {
+        @apply bg-gray-50/80 dark:bg-gray-900/80 backdrop-blur-md border border-gray-100 dark:border-gray-800 rounded-3xl shadow-sm transition-all duration-300;
+    }
+
+    .btn-primary {
+        @apply px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-black rounded-2xl shadow-lg shadow-indigo-600/20 active:scale-95 transition-all flex items-center justify-center;
+    }
+
+    .btn-secondary {
+        @apply px-8 py-3 bg-white dark:bg-black text-slate-900 dark:text-white font-black rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-indigo-500 transition-all flex items-center justify-center;
+    }
+
+    .input-field {
+        @apply w-full p-5 rounded-2xl bg-gray-50 dark:bg-gray-900 border-2 border-gray-100 dark:border-gray-800 focus:border-indigo-600 focus:bg-white dark:focus:bg-black focus:ring-4 ring-indigo-500/5 outline-none transition-all font-bold dark:text-white placeholder:text-slate-300 dark:placeholder:text-slate-600;
+    }
+
+    .book-card {
+        @apply group cursor-pointer bg-gray-50 dark:bg-gray-900 rounded-3xl p-3 border border-transparent hover:border-indigo-100 dark:hover:border-indigo-900/30 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500;
+    }
+}
+
+/* 3. Maxsus Animatsiyalar */
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-page {
+    animation: slideUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* 4. Scrollbar Dizayni */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-slate-200 dark:bg-slate-800 rounded-full hover:bg-indigo-400;
+}
